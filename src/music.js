@@ -1,5 +1,5 @@
 const music=document.querySelector("audio");
-const img=document.querySelector("image");
+const img=document.querySelector("img");
 const play=document.getElementById("play");
 const artist=document.getElementById("artist");
 const title=document.getElementById("title");
@@ -12,7 +12,7 @@ const song = [
     artist: "noor",
   },
   {
-    name: "Bun",
+    name: "bun",
     title: "tu hai",
     artist: "noor",
   },
@@ -34,10 +34,10 @@ play.addEventListener("click",()=>{
 const loading=(e)=>{
     title.textContent=e.title;
     artist.textContent=e.artist;
-    music.src=`music/${e.name}.mp3`
+    music.src=`song/${e.name}.mp3`
     img.src=`image/${e.name}.jpg`
 }
-songIndex=0;
+var songIndex=0;
 const nextSong=()=>{
     songIndex=(songIndex+1)%song.length;
     loading(song[songIndex]);
