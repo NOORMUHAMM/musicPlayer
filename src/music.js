@@ -5,13 +5,18 @@ const artist=document.getElementById("artist");
 const title=document.getElementById("title");
 const previous=document.getElementById("previous");
 const next=document.getElementById("next");
-const music=[
-    {
-        name:"tu",
-        title:"tu hai",
-        artist:"noor"
-    }
-]
+const song = [
+  {
+    name: "tu",
+    title: "tu hai",
+    artist: "noor",
+  },
+  {
+    name: "Bun",
+    title: "tu hai",
+    artist: "noor",
+  },
+];
 var isPlay=false;
 const musicPlay=()=>{
     isPlay=true;
@@ -26,3 +31,22 @@ const stopMusic=()=>{
 play.addEventListener("click",()=>{
     isPlay? stopMusic():musicPlay();
 })
+const loading=(e)=>{
+    title.textContent=e.title;
+    artist.textContent=e.artist;
+    music.src=`music/${e.name}.mp3`
+    img.src=`image/${e.name}.jpg`
+}
+songIndex=0;
+const nextSong=()=>{
+    songIndex=(songIndex+1)%song.length;
+    loading(song[songIndex]);
+    musicPlay()
+}
+const preSong=()=>{
+       songIndex = (songIndex-1+song.length) % song.length;
+          loading(song[songIndex]);
+          musicPlay()
+}
+next.addEventListener("click",nextSong);
+previous.addEventListener("click",preSong)
