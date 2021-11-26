@@ -15,13 +15,13 @@ const progressDiv=document.getElementById("progressDiv")
 const song = [
   {
     name: "tu",
-    title: "tu hai",
-    artist: "noor",
+    title: "Tu hai",
+    artist: "Noor",
   },
   {
     name: "bun",
-    title: "tu hai",
-    artist: "noor",
+    title: "Bunty bubly",
+    artist: "Jack",
   },
 ];
 var isPlay=false;
