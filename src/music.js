@@ -10,6 +10,7 @@ const progress = document.getElementById("progress");
 const current_time = document.getElementById("currentTime");
 let duretion = document.getElementById("duretion");
 let current= document.getElementById("currentTime");
+const progressDiv=document.getElementById("progressDiv")
 // songs data with artist 
 const song = [
   {
@@ -84,13 +85,20 @@ music.addEventListener("timeupdate",(event)=>{
   }
     let min = Math.floor(currentTime / 60);
     let second = Math.floor(currentTime % 60);
-    let totalTime = `${min}:${second}`;
+    let totalTime = `${min}:${second}`;                      
     if (duration) {
       current.textContent = `${totalTime}`;
     }
 
 })
 
+// click on progressDiv
+progressDiv.addEventListener("click",(event)=>{
+   const {duration } = music;
+  let move_progress=(event.offsetX/event.srcElement.clientWidth)*duration;
+  music.currentTime=move_progress;
+})
+music.addEventListener("ended",nextSong)
 
 next.addEventListener("click",nextSong);
 previous.addEventListener("click",preSong)
