@@ -23,6 +23,11 @@ const song = [
     title: "Bunty bubly",
     artist: "Jack",
   },
+  {
+    name: "kalle",
+    title: "Kalle",
+    artist: "Ayushman khuran",
+  },
 ];
 var isPlay=false;
 
